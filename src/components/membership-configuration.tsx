@@ -5,6 +5,9 @@ import { Switch } from "@nextui-org/switch";
 import { Divider } from "@nextui-org/divider";
 import { CheckboxGroup, Checkbox } from "@nextui-org/checkbox";
 import { useState } from "react";
+import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/popover";
+import { Button } from "@nextui-org/button";
+import { Icon } from "@iconify/react";
 
 export const MembershipConfiguration = () => {
   const [subscriptionOption1, setSubscriptionOption1] = useState(false);
@@ -49,7 +52,33 @@ export const MembershipConfiguration = () => {
         <CardBody className="flex-col gap-2">
           <div className="flex items-start">
             <div className="grow flex flex-col gap-1">
-              <p className="text-xl font-semibold">Zaterdag</p>
+              <div className="flex gap-1">
+                <p className="text-xl font-semibold">Zaterdag</p>
+                <Popover
+                  className="max-w-sm"
+                  backdrop="opaque"
+                  showArrow
+                  placement="bottom"
+                >
+                  <PopoverTrigger>
+                    <Button variant="light" size="sm" isIconOnly>
+                      <Icon
+                        className="text-primary"
+                        width={20}
+                        icon="tabler:info-circle"
+                      />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="p-4">
+                    <p>
+                      Wil je per keer betalen, selecteer deze optie dan niet,
+                      dan is het verzoek om per keer aanwezigheid €7,50 over te
+                      maken.
+                    </p>
+                  </PopoverContent>
+                </Popover>
+              </div>
+
               <p className="text-sm font-light text-foreground-500">
                 Ik wil er bij zijn op zaterdag zonder iedere keer afzonderlijk
                 te hoeven betalen.
@@ -88,7 +117,31 @@ export const MembershipConfiguration = () => {
         <CardBody className="flex-col gap-2">
           <div className="flex items-start">
             <div className="grow flex flex-col gap-1">
-              <p className="text-xl font-semibold">Overig</p>
+              <div className="flex gap-1">
+                <p className="text-xl font-semibold">Overig</p>
+                <Popover
+                  className="max-w-sm"
+                  backdrop="opaque"
+                  showArrow
+                  placement="bottom"
+                >
+                  <PopoverTrigger>
+                    <Button variant="light" size="sm" isIconOnly>
+                      <Icon
+                        className="text-primary"
+                        width={20}
+                        icon="tabler:info-circle"
+                      />
+                    </Button>
+                  </PopoverTrigger>
+                  <PopoverContent className="p-4">
+                    <p>
+                      Wil je per keer betalen, selecteer deze optie dan niet,
+                      dan kan je per uitje het bedrag per persoon afrekenen.
+                    </p>
+                  </PopoverContent>
+                </Popover>
+              </div>
               <p className="text-sm font-light text-foreground-500">
                 Ik wil graag mee als er andere uitjes gepland worden wanneer er
                 te veel geld in de pot zit, zonder extra te hoeven betalen.
